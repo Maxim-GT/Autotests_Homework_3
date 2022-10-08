@@ -48,7 +48,7 @@ public class BankFormTest {
     }
 
     @Test
-    void shouldWarnIfOverLimitInNameAndSurename() {
+    void shouldWarnIfOverLimitInNameAndSurname() {
         driver.get("http://localhost:9999/");
         List <WebElement> list = driver.findElements(By.className("input__sub"));
         driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Иван Ивановвввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв");
