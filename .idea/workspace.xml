@@ -58,6 +58,11 @@
       <recent name="D:\Netology\IdeaProjects\Autotests_Homework_3\driver\Win 10" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradlew test -Dselenide.headless=true" />
+    </option>
+  </component>
   <component name="RunManager" selected="Gradle.Autotests_Homework_3 [test]">
     <configuration name="Autotests_Homework_3 [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
