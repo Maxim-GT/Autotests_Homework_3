@@ -1,46 +1,50 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.List;
+
 
 public class BankFormTest {
 
-
-    private WebDriver driver;
-
-    @BeforeAll
-    static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", "driver/Win 10/chromedriver.exe");
-    }
+    WebDriver driver;
 
     @BeforeEach
-    void setUp() {
-        driver = new ChromeDriver();
+    void setup() {
+        driver = WebDriverManager.chromedriver().create();
     }
-
+    @BeforeEach
+    void setUpOpenPort(){
+        driver.get("http://localhost:9999/");
+    }
+    @BeforeEach
+    public void setUp() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
+    }
     @AfterEach
-    void tearsDown() {
+    void teardown() {
         driver.quit();
-        driver = null;
     }
 
     @Test
     void shouldSendFormAndAnswer() {
-        driver.get("http://localhost:9999/");
-        driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Иван Иванов");
-        driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+78007654635");
+        driver.findElement(By.cssSelector("[type='text']")).sendKeys("Иван Иванов");
+        driver.findElement(By.cssSelector("[type= 'tel']")).sendKeys("+78007654635");
         driver.findElement(By.className("checkbox")).click();
         driver.findElement(By.className("button__text")).click();
-        String text = driver.findElement(By.className("paragraph")).getText();
+        String text = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText();
         Assertions.assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
     }
 
     @Test
     void shouldWarnIfNameAndSurnameIsInvalid() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Dwayne Johnson");
         driver.findElement(By.className("button__text")).click();
         String text = driver.findElement(By.className("input__sub")).getText();
@@ -49,7 +53,6 @@ public class BankFormTest {
 
     @Test
     void shouldWarnIfOverLimitInNameAndSurname() {
-        driver.get("http://localhost:9999/");
         List <WebElement> list = driver.findElements(By.className("input__sub"));
         driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Иван Ивановвввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв");
         driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+78007654635");
@@ -61,7 +64,6 @@ public class BankFormTest {
 
     @Test
     void shouldWarnIfPhoneNumberIsInvalid() {
-        driver.get("http://localhost:9999/");
         List<WebElement> list = driver.findElements(By.className("input__sub"));
         driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Иван Иванов");
         driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("88007654635");
@@ -72,7 +74,6 @@ public class BankFormTest {
 
     @Test
     void shouldWarnIfOverLimitInPhone() {
-        driver.get("http://localhost:9999/");
         List<WebElement> list = driver.findElements(By.className("input__sub"));
         driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Иван Иванов");
         driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+780076546358");
@@ -83,7 +84,6 @@ public class BankFormTest {
 
     @Test
     void shouldWarnIfThereIsNoTick() {
-        driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("[type=\"text\"]")).sendKeys("Иван Иванов");
         driver.findElement(By.cssSelector("[type=\"tel\"]")).sendKeys("+78007654635");
         driver.findElement(By.className("button__text")).click();
@@ -93,7 +93,6 @@ public class BankFormTest {
 
     @Test
     void shouldWarnIfTelephoneNotFilled() {
-        driver.get("http://localhost:9999/");
         List<WebElement> list = driver.findElements(By.className("input__sub"));
         driver.findElement(By.className("button__text")).click();
         String text = list.get(0).getText();
@@ -102,7 +101,6 @@ public class BankFormTest {
 
     @Test
     void shouldWarnWhatToWriteInNameAndSurname() {
-        driver.get("http://localhost:9999/");
         List<WebElement> list = driver.findElements(By.className("input__sub"));
         String text = list.get(0).getText();
         Assertions.assertEquals("Укажите точно как в паспорте", text);
@@ -110,7 +108,6 @@ public class BankFormTest {
 
     @Test
     void shouldWarnWhatToWriteInPhone() {
-        driver.get("http://localhost:9999/");
         List<WebElement> list = driver.findElements(By.className("input__sub"));
         String text = list.get(1).getText();
         Assertions.assertEquals("На указанный номер моб. тел. будет отправлен смс-код для подтверждения заявки на карту. Проверьте, что номер ваш и введен корректно.", text);
