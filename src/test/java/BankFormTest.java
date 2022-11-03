@@ -110,7 +110,6 @@ public class BankFormTest {
     @Test
     void shouldWarnWhatToWriteInNameAndSurname() {
         String text = driver.findElement(By.cssSelector("[data-test-id='name'] .input__sub")).getText();
-//        String text = list.get(0).getText();
         Assertions.assertEquals("Укажите точно как в паспорте", text);
     }
 
