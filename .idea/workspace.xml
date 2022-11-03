@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8b6e12b1-4d9f-4184-9d78-904a14aeebf9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/Win 10/chromedriver.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BankFormTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BankFormTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,28 +82,7 @@
       <command value="gradlew test -Dselenide.headless=true" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.BankFormTest.shouldSendFormAndAnswer (1)">
-    <configuration name="Autotests_Homework_3 [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="-Dselenide.headless=true" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.BankFormTest">
     <configuration name="BankFormTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -129,7 +106,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BankFormTest.shouldSendFormAndAnswer (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BankFormTest.shouldWarnIfNameNotFilled" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -142,7 +119,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;BankFormTest.shouldSendFormAndAnswer&quot;" />
+            <option value="&quot;BankFormTest.shouldWarnIfNameNotFilled&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -152,7 +129,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BankFormTest.shouldWarnIfNameAndSurnameIsInvalid" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BankFormTest.shouldWarnIfOverLimitInPhone" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -165,7 +142,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;BankFormTest.shouldWarnIfNameAndSurnameIsInvalid&quot;" />
+            <option value="&quot;BankFormTest.shouldWarnIfOverLimitInPhone&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -175,7 +152,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BankFormTest.shouldWarnIfOverLimitInNameAndSurename" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BankFormTest.shouldWarnWhatToWriteInNameAndSurname" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -188,7 +165,30 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;BankFormTest.shouldWarnIfOverLimitInNameAndSurename&quot;" />
+            <option value="&quot;BankFormTest.shouldWarnWhatToWriteInNameAndSurname&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="BankFormTest.shouldWarnWhatToWriteInPhone" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;BankFormTest.shouldWarnWhatToWriteInPhone&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -200,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.BankFormTest.shouldSendFormAndAnswer (1)" />
-        <item itemvalue="Gradle.BankFormTest.shouldWarnIfNameAndSurnameIsInvalid" />
         <item itemvalue="Gradle.BankFormTest" />
-        <item itemvalue="Gradle.Autotests_Homework_3 [test]" />
-        <item itemvalue="Gradle.BankFormTest.shouldWarnIfOverLimitInNameAndSurename" />
+        <item itemvalue="Gradle.BankFormTest.shouldWarnWhatToWriteInPhone" />
+        <item itemvalue="Gradle.BankFormTest.shouldWarnWhatToWriteInNameAndSurname" />
+        <item itemvalue="Gradle.BankFormTest.shouldWarnIfNameNotFilled" />
+        <item itemvalue="Gradle.BankFormTest.shouldWarnIfOverLimitInPhone" />
       </list>
     </recent_temporary>
   </component>
@@ -229,5 +229,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
